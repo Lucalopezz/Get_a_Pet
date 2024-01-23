@@ -1,0 +1,5 @@
+# Ignorar o diretório backend/node_modules/
+backend/node_modules/
+
+# Ignorar o diretório backend/db/
+backend/src/db/conn.js
