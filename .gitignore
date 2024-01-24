@@ -3,3 +3,5 @@ backend/node_modules/
 
 # Ignorar o diretório backend/db/
 backend/src/db/conn.js
+backend/public/images/pets/
+backend/public/images/users/
