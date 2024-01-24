@@ -1,0 +1,11 @@
+const express = require("express");
+const router = express.Router();
+
+const PetController = require("../controllers/PetController");
+
+const checkToken = require("../helpers/verify-token");
+const { imageUpload } = require("../helpers/image-upload");
+
+router.post("/create", PetController.create);
+
+module.exports = router;
