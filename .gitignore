@@ -5,3 +5,4 @@ backend/node_modules/
 backend/src/db/conn.js
 backend/public/images/pets/
 backend/public/images/users/
+pets

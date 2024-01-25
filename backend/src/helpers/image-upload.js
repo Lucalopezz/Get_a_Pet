@@ -8,12 +8,17 @@ const imageStore = multer.diskStorage({
     if (req.baseUrl.includes("users")) {
       folder = "users";
     } else if (req.baseUrl.includes("pets")) {
-      folder = "pet";
+      folder = "pets";
     }
     cb(null, `public/images/${folder}`);
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));
+    cb(
+      null,
+      Date.now() +
+        String(Math.floor(Math.random() * 100)) +
+        path.extname(file.originalname)
+    );
   },
 });
 
@@ -27,4 +32,4 @@ const imageUpload = multer({
   },
 });
 
-module.exports = {imageUpload}
+module.exports = { imageUpload };
