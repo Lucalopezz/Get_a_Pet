@@ -13,10 +13,16 @@ router.post(
   PetController.create
 );
 
-router.get("/", PetController.getAll)
-router.get("/mypets",checkToken, PetController.getAllUserPets)
-router.get("/myadoptions",checkToken, PetController.getAllUserAdptions)
-router.get("/:id", PetController.getPetById)
-router.delete("/:id",checkToken, PetController.removePetById)
+router.get("/", PetController.getAll);
+router.get("/mypets", checkToken, PetController.getAllUserPets);
+router.get("/myadoptions", checkToken, PetController.getAllUserAdptions);
+router.get("/:id", PetController.getPetById);
+router.delete("/:id", checkToken, PetController.removePetById);
+router.patch(
+  "/:id",
+  checkToken,
+  imageUpload.array("images"),
+  PetController.updatePet
+);
 
 module.exports = router;

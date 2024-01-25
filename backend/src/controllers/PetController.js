@@ -9,7 +9,7 @@ module.exports = class PetController {
     const { name, age, weight, color } = req.body;
 
     const images = req.files;
-    console.log(images);
+    //console.log(images);
     const available = true; //when create a pet, he is available
 
     // images upload
@@ -113,7 +113,7 @@ module.exports = class PetController {
 
     res.status(200).json({ pet });
   }
-  static async removePetById(req, res){
+  static async removePetById(req, res) {
     const id = req.params.id;
 
     if (!ObjectId.isValid(id)) {
@@ -132,12 +132,83 @@ module.exports = class PetController {
     const token = getToken(req);
     const user = await getUserByToken(token);
 
-    if(pet.user._id.toString() !== user._id.toString()){
-      res.status(422).json({ message: "Houve um problema em processar sua solicitação! " });
+    if (pet.user._id.toString() !== user._id.toString()) {
+      res
+        .status(422)
+        .json({ message: "Houve um problema em processar sua solicitação! " });
       return;
     }
 
-    await Pet.findByIdAndDelete(id)
-    res.status(200).json({message: "Pet removido com sucesso!"})
+    await Pet.findByIdAndDelete(id);
+    res.status(200).json({ message: "Pet removido com sucesso!" });
+  }
+
+  static async updatePet(req, res) {
+    const id = req.params.id;
+
+    const { name, age, weight, color, available } = req.body;
+
+    const images = req.files;
+    //console.log(images);
+    const updatedData = {};
+
+    if (!ObjectId.isValid(id)) {
+      res.status(422).json({ message: "Pet não encontrado" });
+      return;
+    }
+
+    const pet = await Pet.findById(id);
+
+    if (!pet) {
+      res.status(404).json({ message: "Pet não encontrado" });
+      return;
+    }
+
+    const token = getToken(req);
+    const user = await getUserByToken(token);
+
+    if (pet.user._id.toString() !== user._id.toString()) {
+      res
+        .status(422)
+        .json({ message: "Houve um problema em processar sua solicitação! " });
+      return;
+    }
+
+    //validations
+    switch (true) {
+      case !name:
+        res.status(422).json({ message: "O nome é obrigatório!" });
+        break;
+      case !age:
+        res.status(422).json({ message: "A idade é obrigatória!" });
+        break;
+      case !weight:
+        res.status(422).json({ message: "O peso é obrigatório!" });
+        break;
+      case !color:
+        res.status(422).json({ message: "A cor é obrigatória!" });
+        break;
+      case images.length === 0:
+        res.status(422).json({ message: "A imagem é obrigatória!" });
+        break;
+
+      default:
+        break;
+    }
+
+    updatedData.name = name;
+    updatedData.age = age;
+    updatedData.weight = weight;
+    updatedData.color = color;
+    updatedData.images = [];
+    images.map((image) => {
+      updatedData.images.push(image.filename);
+    });
+
+
+    await Pet.findByIdAndUpdate(id, updatedData)
+
+
+    res.status(200).json({message: "Pet atualizado com sucesso!"})
   }
 };
