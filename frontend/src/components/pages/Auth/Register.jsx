@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Input from "../../form/Input";
 
 import styles from "../../form/Form.module.css";
@@ -6,15 +6,16 @@ import styles from "../../form/Form.module.css";
 import { Link } from "react-router-dom";
 
 import { useForm } from "react-hook-form";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { z } from "zod";
+import { Context } from "../../../context/UserContext";
 
 const CreateMemoryFormSchema = z
   .object({
     name: z.string(),
     phone: z.string(),
-    email: z.string().email("E-mail inválido!"),
+    email: z.string(),
     password: z.string(),
     confirmpassword: z.string(),
   })
@@ -31,9 +32,10 @@ const Register = () => {
   } = useForm({
     resolver: zodResolver(CreateMemoryFormSchema),
   });
+  const { register: registerContext } = useContext(Context)
 
   const onSubmit = async (data) => {
-    console.log(data);
+    registerContext(data);
   };
 
   return (

@@ -8,6 +8,9 @@ import Home from "./components/pages/Home.jsx";
 import Register from "./components/pages/Auth/Register.jsx";
 import Login from "./components/pages/Auth/Login.jsx";
 
+//Context
+import { UserProvider } from "./context/UserContext.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,6 +34,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );
