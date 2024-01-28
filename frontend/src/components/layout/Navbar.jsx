@@ -7,7 +7,7 @@ import { Context } from "../../context/UserContext";
 import { useContext } from "react";
 
 const Navbar = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { authenticated, logout } = useContext(Context);
   return (
     <nav className={styles.navbar}>
@@ -21,9 +21,10 @@ const Navbar = () => {
         </li>
         {authenticated ? (
           <>
-           <li onClick={(e) => logout(navigate)}>
-            Sair
-           </li>
+            <li>
+              <Link to="/user/profile">Perfil</Link>
+            </li>
+            <li onClick={(e) => logout(navigate)}>Sair</li>
           </>
         ) : (
           <>

@@ -174,6 +174,11 @@ module.exports = class UserController {
     }
 
     user.phone = phone;
+    
+    if (!password) {
+      res.status(422).json({ message: "A senha é obrigatória!" });
+      return;
+    }
 
     // check if password match
     if (password != confirmpassword) {
