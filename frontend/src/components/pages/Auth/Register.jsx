@@ -11,6 +11,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Context } from "../../../context/UserContext";
 
+import { useNavigate } from "react-router-dom";
+
+
 const CreateMemoryFormSchema = z
   .object({
     name: z.string(),
@@ -32,16 +35,17 @@ const Register = () => {
   } = useForm({
     resolver: zodResolver(CreateMemoryFormSchema),
   });
-  const { register: registerContext } = useContext(Context)
+  const { register: registerContext} = useContext(Context)
+  const navigate = useNavigate(); //pass the navigate through the props
 
   const onSubmit = async (data) => {
-    registerContext(data);
+    registerContext(data, navigate);
   };
 
   return (
     <section>
-      <h1>Registrar</h1>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form_container}>
+      <h1>Registrar</h1>
         <Input
           text="Nome"
           type="text"
