@@ -14,7 +14,7 @@ import { Context } from "../../../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 
-const CreateMemoryFormSchema = z
+const RegisterFormSchema = z
   .object({
     name: z.string(),
     phone: z.string(),
@@ -33,7 +33,7 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(CreateMemoryFormSchema),
+    resolver: zodResolver(RegisterFormSchema),
   });
   const { register: registerContext} = useContext(Context)
   const navigate = useNavigate(); //pass the navigate through the props

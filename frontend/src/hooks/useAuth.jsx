@@ -33,12 +33,33 @@ export default function useAuth() {
 
     setFlashMessage(msgText, msgType);
   }
+  async function login(user, navigate){
+    let msgText = "Login Realizado com Sucesso!";
+    let msgType = "success";
+    
+    try {
+      const data = await api.post('/users/login', user).then((response) => {
+        return response.data
+      })
+
+
+      await authUser(data, navigate)
+      
+    } catch (error) {
+      msgText = error.response.data.message || "Ocorreu um erro durante o login.";
+      msgType = "error";
+    }
+
+    
+    setFlashMessage(msgText, msgType);
+
+  }
 
   async function authUser(data, navigate) {
     setAuthenticated(true);
     localStorage.setItem("token", JSON.stringify(data.token));
-
     navigate("/");
+
   }
 
   function logout(navigate){
@@ -52,5 +73,5 @@ export default function useAuth() {
 
     setFlashMessage(msgText, msgType)
   }
-  return { authenticated, register, logout };
+  return { authenticated, register, logout, login };
 }
