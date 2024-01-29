@@ -18,19 +18,19 @@ module.exports = class PetController {
     switch (true) {
       case !name:
         res.status(422).json({ message: "O nome é obrigatório!" });
-        break;
+        return;
       case !age:
         res.status(422).json({ message: "A idade é obrigatória!" });
-        break;
+        return;
       case !weight:
         res.status(422).json({ message: "O peso é obrigatório!" });
-        break;
+        return;
       case !color:
         res.status(422).json({ message: "A cor é obrigatória!" });
-        break;
+        return;
       case images.length === 0:
         res.status(422).json({ message: "A imagem é obrigatória!" });
-        break;
+        return;
 
       default:
         break;

@@ -17,6 +17,9 @@ const Navbar = () => {
       </div>
       <ul>
         <li>
+          <Link to="/pet/mypets">Meus Pets</Link>
+        </li>
+        <li>
           <Link to="/">Adotar</Link>
         </li>
         {authenticated ? (

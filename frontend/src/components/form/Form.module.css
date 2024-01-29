@@ -43,3 +43,20 @@
   height: 100px;
   margin-left: 1em;
 }
+
+.form_control_select {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.form_control_select label {
+  margin-bottom: 0.6em;
+  font-weight: bold;
+}
+
+.form_control_select select {
+  padding: 0.7em;
+  border: 1px solid #777;
+  border-radius: 5px;
+}

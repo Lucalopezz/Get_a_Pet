@@ -13,7 +13,6 @@ import { Context } from "../../../context/UserContext";
 
 import { useNavigate } from "react-router-dom";
 
-
 const RegisterFormSchema = z
   .object({
     name: z.string(),
@@ -24,7 +23,7 @@ const RegisterFormSchema = z
   })
   .refine((data) => data.password === data.confirmpassword, {
     message: "As senhas não conferem!",
-    path: ["confirmpassword"]
+    path: ["confirmpassword"],
   });
 
 const Register = () => {
@@ -35,7 +34,7 @@ const Register = () => {
   } = useForm({
     resolver: zodResolver(RegisterFormSchema),
   });
-  const { register: registerContext} = useContext(Context)
+  const { register: registerContext } = useContext(Context);
   const navigate = useNavigate(); //pass the navigate through the props
 
   const onSubmit = async (data) => {
@@ -45,7 +44,7 @@ const Register = () => {
   return (
     <section>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form_container}>
-      <h1>Registrar</h1>
+        <h1>Registrar</h1>
         <Input
           text="Nome"
           type="text"

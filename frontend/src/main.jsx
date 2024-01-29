@@ -13,6 +13,8 @@ import Home from "./components/pages/Home.jsx";
 import Register from "./components/pages/Auth/Register.jsx";
 import Login from "./components/pages/Auth/Login.jsx";
 import Profile from "./components/pages/User/Profile.jsx";
+import MyPets from "./components/pages/Pet/MyPets.jsx";
+import AddPet from "./components/pages/Pet/AddPet.jsx";
 
 
 const router = createBrowserRouter([
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
       {
         path: "/user/profile",
         element: <Profile />,
+      },
+      {
+        path: "/pet/mypets",
+        element: <MyPets/>
+      },
+      {
+        path: "/pet/add",
+        element: <AddPet/>
       },
     ],
   },

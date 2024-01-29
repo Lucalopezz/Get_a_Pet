@@ -12,6 +12,9 @@ import { useState, useEffect } from "react";
 import api from "../../../utils/api";
 
 import useFlashMessage from "../../../hooks/useFlashMessage";
+import RoundedImage from "../../layout/RoundedImage";
+
+const imageURL = 'http://localhost:5000/'
 
 const imageUserSchema = z.object({
   name: z.string(),
@@ -48,13 +51,13 @@ const Profile = () => {
   });
 
   const onSubmit = async (userData) => {
+    console.log(user);
     let msgType = "success";
     const formData = new FormData();
 
     Object.keys(user).forEach((key) => {
       formData.append(key, userData[key] || user[key]); //update the data whitch was updated, and include the data witch isnt updated
     });
-
 
     if (userData.password) {
       formData.append("password", userData.password); //add the password camp to the resquest
@@ -65,7 +68,6 @@ const Profile = () => {
     if (userData.image[0] instanceof File) {
       formData.append("image", userData.image[0]);
     }
-  
 
     const data = await api
       .patch(`/users/edit/${user._id}`, formData, {
@@ -88,10 +90,12 @@ const Profile = () => {
   };
   return (
     <section>
+     
       <div className={styles.profile_header}>
         <h1>Perfil</h1>
-        <p> Preview Imagem</p>
-        <br />
+        {user.image && (
+          <RoundedImage src={`${imageURL}images/users/${user.image}`}  alt={user.name}/>
+        )}
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
