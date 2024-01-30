@@ -31,12 +31,11 @@ const EditPet = () => {
   const updatePet = async (petData) => {
     let msgType = "success";
     const formData = new FormData();
-
     const petFormData = Object.keys(petData).forEach((key) => {
       if (key === "images") {
         for (let i = 0; i < petData[key].length; i++) {
           formData.append(`images`, petData[key][i]);
-        }
+        } 
       } else {
         formData.append(key, petData[key]);
       }
@@ -53,6 +52,7 @@ const EditPet = () => {
       })
       .then((response) => {
         console.log(response.data);
+        window.location.reload()
         return response.data;
       })
       .catch((err) => {

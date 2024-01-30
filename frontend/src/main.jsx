@@ -16,6 +16,7 @@ import Profile from "./components/pages/User/Profile.jsx";
 import MyPets from "./components/pages/Pet/MyPets.jsx";
 import AddPet from "./components/pages/Pet/AddPet.jsx";
 import EditPet from "./components/pages/Pet/EditPet.jsx";
+import PetDetails from "./components/pages/Pet/PetDetails.jsx";
 
 
 const router = createBrowserRouter([
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/pet/edit/:id",
         element: <EditPet/>
+      },
+      {
+        path: "/pet/:id",
+        element: < PetDetails/>
       },
     ],
   },

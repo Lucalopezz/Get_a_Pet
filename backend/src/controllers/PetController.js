@@ -188,6 +188,9 @@ module.exports = class PetController {
       case !color:
         res.status(422).json({ message: "A cor é obrigatória!" });
         return;
+      case !images:
+        res.status(422).json({ message: "As imagens são obrigatórias!" });
+        return;
 
       default:
         break;
