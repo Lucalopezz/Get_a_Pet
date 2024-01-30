@@ -71,7 +71,7 @@ const MyPets = () => {
                         Concluir adoção
                       </button>
                     )}
-                    <Link to={`pet/edit/${pet._id}`}>Editar</Link>
+                    <Link to={`/pet/edit/${pet._id}`}>Editar</Link>
                     <button onClick={() => removePet(pet._id)}>Excluir</button>
                   </>
                 ) : (

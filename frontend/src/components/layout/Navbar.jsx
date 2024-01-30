@@ -16,17 +16,18 @@ const Navbar = () => {
         <h2>Get A Pet</h2>
       </div>
       <ul>
-        <li>
-          <Link to="/pet/mypets">Meus Pets</Link>
-        </li>
-        <li>
-          <Link to="/">Adotar</Link>
-        </li>
         {authenticated ? (
           <>
             <li>
               <Link to="/user/profile">Perfil</Link>
             </li>
+            <li>
+              <Link to="/pet/mypets">Meus Pets</Link>
+            </li>
+            <li>
+              <Link to="/">Adotar</Link>
+            </li>
+
             <li onClick={(e) => logout(navigate)}>Sair</li>
           </>
         ) : (
