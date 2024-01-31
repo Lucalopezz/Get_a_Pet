@@ -8,7 +8,6 @@ import { createBrowserRouter, RouterProvider, Routes } from "react-router-dom";
 //Context
 import { UserProvider } from "./context/UserContext.jsx";
 
-
 import Home from "./components/pages/Home.jsx";
 import Register from "./components/pages/Auth/Register.jsx";
 import Login from "./components/pages/Auth/Login.jsx";
@@ -17,7 +16,7 @@ import MyPets from "./components/pages/Pet/MyPets.jsx";
 import AddPet from "./components/pages/Pet/AddPet.jsx";
 import EditPet from "./components/pages/Pet/EditPet.jsx";
 import PetDetails from "./components/pages/Pet/PetDetails.jsx";
-
+import MyAdoptions from "./components/pages/Pet/MyAdoptions.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,19 +41,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/pet/mypets",
-        element: <MyPets/>
+        element: <MyPets />,
       },
       {
         path: "/pet/add",
-        element: <AddPet/>
+        element: <AddPet />,
       },
       {
         path: "/pet/edit/:id",
-        element: <EditPet/>
+        element: <EditPet />,
       },
       {
         path: "/pet/:id",
-        element: < PetDetails/>
+        element: <PetDetails />,
+      },
+      {
+        path: "/pet/myadoptions",
+        element: <MyAdoptions />,
       },
     ],
   },

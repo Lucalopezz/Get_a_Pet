@@ -19,13 +19,16 @@ const Navbar = () => {
         {authenticated ? (
           <>
             <li>
+              <Link to="/">Adotar</Link>
+            </li>
+            <li>
               <Link to="/user/profile">Perfil</Link>
             </li>
             <li>
               <Link to="/pet/mypets">Meus Pets</Link>
             </li>
             <li>
-              <Link to="/">Adotar</Link>
+              <Link to="/pet/myadoptions">Adoções</Link>
             </li>
 
             <li onClick={(e) => logout(navigate)}>Sair</li>
