@@ -57,7 +57,7 @@ const PetForm = ({ onSubmit, petData, btnText }) => {
         text="Peso do Pet"
         type="text"
         name="weight"
-        placeholder="Digite o peso do seu Pet"
+        placeholder="Digite o peso do seu Pet (coloque 0. para gramas)"
         {...register("weight")}
         value={pet.weight || ""}
       />

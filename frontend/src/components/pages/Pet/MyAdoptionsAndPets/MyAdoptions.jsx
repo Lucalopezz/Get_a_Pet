@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import api from "../../../utils/api";
+import api from "../../../../utils/api";
 
-import RoundedImage from "../../layout/RoundedImage";
+import RoundedImage from "../../../layout/RoundedImage";
 
-import styles from "./Dashboard.module.css";
+import styles from "../Dashboard.module.css";
 const imageURL = 'http://localhost:5000/'
 
 

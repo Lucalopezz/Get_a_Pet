@@ -1,4 +1,4 @@
-import api from "../../../utils/api";
+import api from "../../../../utils/api";
 
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
@@ -6,7 +6,7 @@ import { useParams, Link } from "react-router-dom";
 import styles from "./PetDetails.module.css";
 
 /* hooks */
-import useFlashMessage from "../../../hooks/useFlashMessage";
+import useFlashMessage from "../../../../hooks/useFlashMessage";
 
 const imageURL = 'http://localhost:5000/'
 

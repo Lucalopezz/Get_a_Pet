@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import styles from "./Dashboard.module.css";
-import useFlashMessage from "../../../hooks/useFlashMessage";
-import api from "../../../utils/api";
+import styles from "../Dashboard.module.css";
+import useFlashMessage from "../../../../hooks/useFlashMessage";
+import api from "../../../../utils/api";
 
-import RoundedImage from "../../layout/RoundedImage";
+import RoundedImage from "../../../layout/RoundedImage";
 const imageURL = "http://localhost:5000/";
 
 const MyPets = () => {

@@ -12,11 +12,11 @@ import Home from "./components/pages/Home.jsx";
 import Register from "./components/pages/Auth/Register.jsx";
 import Login from "./components/pages/Auth/Login.jsx";
 import Profile from "./components/pages/User/Profile.jsx";
-import MyPets from "./components/pages/Pet/MyPets.jsx";
-import AddPet from "./components/pages/Pet/AddPet.jsx";
-import EditPet from "./components/pages/Pet/EditPet.jsx";
-import PetDetails from "./components/pages/Pet/PetDetails.jsx";
-import MyAdoptions from "./components/pages/Pet/MyAdoptions.jsx";
+import MyPets from "./components/pages/Pet/MyAdoptionsAndPets/MyPets.jsx";
+import AddPet from "./components/pages/Pet/AddPet/AddPet.jsx";
+import EditPet from "./components/pages/Pet/MyAdoptionsAndPets/EditPet.jsx";
+import PetDetails from "./components/pages/Pet/PetDetails/PetDetails.jsx";
+import MyAdoptions from "./components/pages/Pet/MyAdoptionsAndPets/MyAdoptions.jsx";
 
 const router = createBrowserRouter([
   {
