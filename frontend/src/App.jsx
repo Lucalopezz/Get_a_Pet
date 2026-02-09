@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { Outlet } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
@@ -7,7 +7,7 @@ import Container from "./components/layout/Container";
 import Message from "./components/layout/Message";
 
 function App() {
-  const [count, setCount] = useState(0);
+
 
   return (
     <div className="App">
